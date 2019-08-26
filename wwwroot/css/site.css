@@ -1,0 +1,160 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+/* Styles for wrapping the search box */
+.input-group.md-form.form-sm.form-1 input {
+    border: 1px solid #bdbdbd;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.input-group.md-form.form-sm.form-2 input {
+    border: 1px solid #bdbdbd;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+    .input-group.md-form.form-sm.form-2 input.red-border {
+        border: 1px solid #ef9a9a;
+    }
+
+    .input-group.md-form.form-sm.form-2 input.lime-border {
+        border: 1px solid #cddc39;
+    }
+
+    .input-group.md-form.form-sm.form-2 input.amber-border {
+        border: 1px solid #ffca28;
+    }
+
+/* Styles for wrapping the search box */
+
+.main {
+    width: 50%;
+    margin: 50px auto;
+}
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.input-group.md-form.form-sm.form-1 input {
+    border: 1px solid #bdbdbd;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+}
+
+.input-group.md-form.form-sm.form-2 input {
+    border: 1px solid #bdbdbd;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+}
+
+    .input-group.md-form.form-sm.form-2 input.red-border {
+        border: 1px solid #ef9a9a;
+    }
+
+    .input-group.md-form.form-sm.form-2 input.lime-border {
+        border: 1px solid #cddc39;
+    }
+
+    .input-group.md-form.form-sm.form-2 input.amber-border {
+        border: 1px solid #ffca28;
+    }
+
+* {
+    box-sizing: border-box;
+}
+
+/* Create four equal columns that floats next to each other */
+
+.productlist {
+    padding-top: 30px;
+    margin-left: 15px;
+    
+}
+.pl {
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: lightgrey;
+}
+.column {
+    float: left;
+    width: 65%;
+    padding: 10px;
+}
+
+.columnImage {
+    float: left;
+    width: 35%;
+    padding: 10px;
+}
+
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 900px) {
+    .column {
+        width: 50%;
+    }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+    }
+}

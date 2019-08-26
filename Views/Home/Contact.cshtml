@@ -1,0 +1,98 @@
+﻿@model TiendaTecnologica.Models.Contacto
+<!--Section: Contact v.2-->
+<section class="mb-4">
+
+    <!--Section heading-->
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Contáctenos</h2>
+    <!--Section description-->
+    <p class="text-center w-responsive mx-auto mb-5">
+        ¿Tiene usted alguna pregunta? Por favor no dude en contactarnos directamente. Nuestro equipo se pondrá en contacto con usted en cuestión de horas para ayudarlo.
+    </p>
+
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-9 mb-md-0 mb-5">
+            <form asp-action="EnviarMensaje" asp-controller="Home" method="post">
+
+                <!--Grid row-->
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" placeholder="Nombre" asp-for="Nombre" class="form-control">
+                        </div>
+                    </div>
+                    <!--Grid column-->
+                    <!--Grid column-->
+                    <div class="col-md-6">
+                        <div class="md-form mb-0">
+                            <input type="text" asp-for="Email" placeholder="Email" class="form-control">
+                        </div>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                </br>
+                <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-md-12">
+
+                        <div class="md-form">
+                            <textarea type="text" asp-for="Mensaje" placeholder="Mensaje" rows="3" class="form-control md-textarea"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!--Grid row-->
+                </br>
+
+                <div class="text-center text-md-left">
+                    <input class="btn btn-primary" type="submit" value="Enviar Mensaje" />
+                </div>
+            </form>
+
+        </div>
+        <!--Grid column-->
+        <!--Grid column-->
+        <div class="col-md-3 text-center">
+            <ul class="list-unstyled mb-0">
+                <li>
+                    <i class="fas fa-map-marker-alt fa-2x"></i>
+                    <p>
+                        Santa Bárbara, Heredia, Costa Rica
+                        Centro comercial Acrópolis
+                    </p>
+                </li>
+
+                <li>
+                    <i class="fas fa-phone mt-4 fa-2x"></i>
+                    <p>(+506) 2269-2337</p>
+                </li>
+
+                <li>
+                    <i class="fas fa-envelope mt-4 fa-2x"></i>
+                    <p>info@technodevice.com</p>
+                </li>
+            </ul>
+        </div>
+        <!--Grid column-->
+
+    </div>
+
+</section>
+<!--Section: Contact v.2-->    
+    @if (ViewBag.Mensaje != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert(@ViewBag.Message);
+                };
+
+    </script>
+
+}
