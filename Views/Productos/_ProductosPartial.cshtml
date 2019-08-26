@@ -1,0 +1,18 @@
+﻿@model TiendaTecnologica.Models.Productos
+
+<div class="row pl ">
+    <div class="columnImage">
+        <a style="display:block" asp-area="" asp-controller="Productos" asp-action="Detalle">
+            <img src="~/images/@(Model.ProImagen)" alt="Italian Trulli">
+        </a>
+    </div>
+    <div class="column">
+        <a style="display:block" asp-area="" asp-controller="Productos" asp-action="Detalle">
+            @Html.DisplayFor(modelItem => Model.ProDescricion)
+        </a>
+
+        <b>@Html.DisplayFor(modelItem => Model.ProPrecio)</b>
+        <br />   <br />
+        <h6 class="text-danger font-weight-ligh">Solo quedan @(Model.ProCantidad) en stock. </h6>
+    </div>
+</div>
