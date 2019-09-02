@@ -7,12 +7,17 @@
         </a>
     </div>
     <div class="column">
-        <a style="display:block" asp-area="" asp-controller="Productos" asp-action="Detalle">
+        <a style="display:block" asp-area="" asp-controller="Productos" asp-action="Detalle" asp-route-IdProducto=@(Model.ProId)>
             @Html.DisplayFor(modelItem => Model.ProDescricion)
         </a>
-
-        <b>@Html.DisplayFor(modelItem => Model.ProPrecio)</b>
-        <br />   <br />
+        <b>₡ @Html.DisplayFor(modelItem => Model.ProPrecio)</b>
+        <br /><br />
         <h6 class="text-danger font-weight-ligh">Solo quedan @(Model.ProCantidad) en stock. </h6>
+        <br />
+        <div class="form-inline my-2 my-lg-0">
+            <input type="number" class="col-xs-12" id="cantidad@(Model.ProId)" name="quantity" min="1" max="@(Model.ProCantidad)">
+            <a href="javascript:AgregarAlCarrito('@(Model.ProId)')" class="nav-link"><i class="fas fa-shopping-cart"></i></a>
+        </div>
     </div>
 </div>
+

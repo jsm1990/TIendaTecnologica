@@ -64,6 +64,9 @@ namespace TiendaTecnologica
                 routes.MapRoute(
                       name: "Categoria",
                       template: "{controller=Productos}/{action=PorCategoria}/{idCategoria?}");
+                routes.MapRoute(
+                      name: "Detalle",
+                      template: "{controller=Productos}/{action=Detalle}/{IdProducto?}");
             });
 
 

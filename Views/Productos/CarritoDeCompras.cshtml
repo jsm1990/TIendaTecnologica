@@ -1,0 +1,14 @@
+﻿@model TiendaTecnologica.Models.ListaDeCompras
+
+@{
+        ViewData["Title"] = "Carrito de Compras";
+}
+
+    <div class="productlist">
+        <br>
+        @foreach (var producto in Model.ListaDeProductos)
+        {
+            <partial name="_ProductosCarritoPartial" model="producto" />
+        }
+    </div>
+  

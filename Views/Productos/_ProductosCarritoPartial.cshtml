@@ -1,0 +1,11 @@
+﻿@model TiendaTecnologica.Models.Productos
+
+<div class="row pl ">
+    <div class="column">
+        @Html.DisplayFor(modelItem => Model.ProDescricion)
+        @Html.DisplayFor(modelItem => Model.ProPrecio)
+        <input type="number" class="col-xs-12" id="cantidad@(Model.ProId)" name="quantity" min="1" value="@(Model.ProCantidad)">
+    </div>
+
+</div>
+

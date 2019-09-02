@@ -13,7 +13,7 @@ namespace TiendaTecnologica.Models
         public string ProId { get; set; }
         public string CatId { get; set; }
         public string ProDescricion { get; set; }
-        public decimal ProPrecio { get; set; }
+        public float ProPrecio { get; set; }
         public short ProCantidad { get; set; }
         public string ProImagen { get; set; }
 

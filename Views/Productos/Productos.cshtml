@@ -4,7 +4,6 @@
     @{
         ViewData["Title"] = "Productos";
     }
-
     <div class="productlist">
         <br>
         @foreach (var producto in Model)
@@ -12,3 +11,4 @@
             <partial name="_ProductosPartial" model="producto" />
         }
     </div>
+  

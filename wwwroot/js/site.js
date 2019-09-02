@@ -4,4 +4,32 @@
 // Write your JavaScript code.
 $(document).ready(function () {
     $('.dropdown-toggle').dropdown();
+
+
+
 });
+
+var listaProductos = [];
+
+    function AgregarAlCarrito(IdProducto) {
+        var IdCantidadInput = 'cantidad' + IdProducto
+        var cantidad = document.getElementById(IdCantidadInput).value;
+        listaProductos.push({
+            Key: IdProducto,
+            Value: cantidad
+        });
+        alert(IdCantidadInput);
+}
+
+            function IrAlCarrito() {
+                $.ajax({
+                    type: "POST",
+                    data: { productos : listaProductos},
+                    dataType: "json",
+                    url: "/Productos/CarritoDeCompras",
+                    success: function (message) {
+                        alert(message);
+                    }
+                });
+
+        }
