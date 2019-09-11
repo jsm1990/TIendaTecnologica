@@ -13,12 +13,13 @@ var listaProductos = [];
 
     function AgregarAlCarrito(IdProducto) {
         var IdCantidadInput = 'cantidad' + IdProducto
+        var IdMensajeInput = 'MensajeCarrito' + IdProducto
         var cantidad = document.getElementById(IdCantidadInput).value;
         listaProductos.push({
             Key: IdProducto,
             Value: cantidad
         });
-        alert(IdCantidadInput);
+        document.getElementById(IdMensajeInput).innerHTML = "El producto se agrego al carrito.";
 }
 
             function IrAlCarrito() {

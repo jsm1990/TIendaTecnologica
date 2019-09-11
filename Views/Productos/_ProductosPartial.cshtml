@@ -1,12 +1,12 @@
 ﻿@model TiendaTecnologica.Models.Productos
 
 <div class="row pl ">
-    <div class="columnImage">
+    <div class="col-sm-5">
         <a style="display:block" asp-area="" asp-controller="Productos" asp-action="Detalle">
-            <img src="~/images/@(Model.ProImagen)" alt="Italian Trulli">
+            <img src="~/images/@(Model.ProImagen)" class="img-responsive" alt="Italian Trulli">
         </a>
     </div>
-    <div class="column">
+    <div class="col-sm-7">
         <a style="display:block" asp-area="" asp-controller="Productos" asp-action="Detalle" asp-route-IdProducto=@(Model.ProId)>
             @Html.DisplayFor(modelItem => Model.ProDescricion)
         </a>

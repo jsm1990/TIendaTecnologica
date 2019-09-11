@@ -117,14 +117,15 @@ body {
 .productlist {
     padding-top: 30px;
     margin-left: 15px;
-    
 }
+
 .pl {
     border-top: solid;
     border-bottom: solid;
     border-width: 1px;
     border-color: lightgrey;
 }
+
 .column {
     float: left;
     width: 65%;
@@ -157,4 +158,11 @@ body {
     .column {
         width: 100%;
     }
+}
+
+.img-responsive {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
 }

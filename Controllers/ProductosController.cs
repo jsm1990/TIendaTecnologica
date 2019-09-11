@@ -90,7 +90,7 @@ namespace TiendaTecnologica.Controllers
         {
             var productos = db.Productos.ToList();
             if (!String.IsNullOrEmpty(textoBusqueda))
-                productos = productos.Where(p => p.ProDescricion.Contains(textoBusqueda)).ToList();
+                productos = productos.Where(p => p.ProDescricion.ToUpper().Contains(textoBusqueda.ToUpper())).ToList();
                
             return View("Productos",productos);
         }

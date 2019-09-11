@@ -1,8 +1,11 @@
 ﻿
 <div class="main">
+
     <form asp-controller="Productos" asp-action="Buscar" class="input-group md-form form-sm form-2 pl-0">
-        <input class="form-control my-0 py-1 " type="text" placeholder="Buscar" name="textoBusqueda">
-        <button class="btn btn-primary my-2 my-sm-0" value="Buscar" type="submit"><i class="fa fa-search"></i></button>
+        <input class="form-control my-0 py-1 border border-primary" type="text" placeholder="Buscar" name="textoBusqueda">
+        <div class="input-group-append">
+            <button class="btn btn-primary" value="Buscar" type="submit"><i class="fa fa-search"></i></button>
+        </div>
     </form>
 </div>
 
