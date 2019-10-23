@@ -9,9 +9,9 @@ using Microsoft.AspNetCore.Http;
 
 namespace TiendaTecnologica.Controllers
 {
-    public class ProductosController : Controller 
+    public class ProductosController : Controller
     {
-        public const float ValorImpuesto = 0.13F; 
+        public const float ValorImpuesto = 0.13F;
         TiendaContext db = new TiendaContext();
 
         private readonly IHttpContextAccessor _httpContextAccessor;
@@ -19,7 +19,7 @@ namespace TiendaTecnologica.Controllers
         private string sessionKey = "listaDeCompras";
         public IActionResult Index()
         {
-            var productos = db.Productos; 
+            var productos = db.Productos;
             return View(productos.ToList());
         }
         public IActionResult Detalle(string IdProducto)
@@ -28,7 +28,7 @@ namespace TiendaTecnologica.Controllers
             return View(productos);
         }
         public IActionResult CarritoDeCompras()
-        {        
+        {
             var listaDeCompras = new ListaDeCompras();
             var Items = HttpContext.Session.GetObjectFromJson<List<Item>>(sessionKey);
             listaDeCompras.ListaDeProductos = Items;
@@ -38,7 +38,7 @@ namespace TiendaTecnologica.Controllers
             listaDeCompras.Impuesto = listaDeCompras.Subtotal * ValorImpuesto;
             listaDeCompras.Total = listaDeCompras.Subtotal + listaDeCompras.Impuesto;
 
-            return View("CarritoDeCompras",listaDeCompras);
+            return View("CarritoDeCompras", listaDeCompras);
         }
         [HttpPost]
         public IActionResult ModificarDelCarrito(Item elItem)
@@ -55,15 +55,16 @@ namespace TiendaTecnologica.Controllers
             var elItem = listaDeCompras.Where(i => i.ItemId == IdProducto).First();
             listaDeCompras.Remove(elItem);
             HttpContext.Session.SetObjectAsJson(sessionKey, listaDeCompras);
-
-            string url = Request.Headers["Referer"].ToString();
-            return Redirect(url);
+            if (listaDeCompras.Count == 0)
+                return Redirect("/Home/Index");
+            else
+                return Redirect("/Productos/CarritoDeCompras");
 
         }
         private IList<Productos> ObtenerProductosSeleccionados(List<Item> items)
         {
             var losProductos = new List<Productos>();
-            foreach(Item it in items)
+            foreach (Item it in items)
             {
                 var elProducto = ListarProducto(it.ItemId);
                 losProductos.Add(elProducto);
@@ -111,10 +112,10 @@ namespace TiendaTecnologica.Controllers
 
                 HttpContext.Session.SetObjectAsJson(sessionKey, listaDeCompras);
             }
-   
-            string url =  Request.Headers["Referer"].ToString();
+
+            string url = Request.Headers["Referer"].ToString();
             return Redirect(url);
-          
+
         }
         private float ObtenerSubtotal(IList<Item> productos)
         {
@@ -150,7 +151,7 @@ namespace TiendaTecnologica.Controllers
         {
             List<Productos> ListaProductos = new List<Productos>();
 
-            foreach(KeyValuePair<string, string> item in productos)
+            foreach (KeyValuePair<string, string> item in productos)
             {
                 Productos elProducto = db.Productos.Where(p => p.ProId.Equals(item.Key)).FirstOrDefault();
                 if (elProducto != null)
@@ -171,8 +172,8 @@ namespace TiendaTecnologica.Controllers
             var productos = db.Productos.ToList();
             if (!String.IsNullOrEmpty(textoBusqueda))
                 productos = productos.Where(p => p.ProDescricion.ToUpper().Contains(textoBusqueda.ToUpper())).ToList();
-               
-            return View("Productos",productos);
+
+            return View("Productos", productos);
         }
         public IActionResult PorCategoria(string idCategoria)
         {

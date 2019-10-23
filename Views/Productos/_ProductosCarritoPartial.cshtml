@@ -1,25 +1,27 @@
 ﻿@model TiendaTecnologica.Models.Item
 
-    <tr>
-        <form id= "CarritoForm" asp-controller="Productos" asp-action="ModificarDelCarrito">
-
-            @Html.HiddenFor(model => model.ItemId)
-            @Html.HiddenFor(model => model.Descripcion)
-            @Html.HiddenFor(model => model.Precio)
-            <th scope="col">
-                @Html.DisplayFor(model => model.Descripcion)
-            </th>
-            <th scope="col">
-                ₡ @Html.DisplayFor(model => model.Precio)
-            </th>
-            <th scope="col">
-                @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { min = 1, max = 5 } })
-            </th>
-            <th scope="col">
-                <a id="ModificarCarrito" class=""><i class="fas fa-edit"></i></a>
-        </form>
-        <a id="agregarAlCarrito" asp-controller="Productos" asp-action="EliminarDelCarrito" asp-route-idProducto='@(Model.ItemId)'
-           class=""><i class="fas fa-trash-alt"></i></a>
+<tr>
+    <form id="CarritoForm" asp-controller="Productos" asp-action="ModificarDelCarrito">
+        @Html.HiddenFor(model => model.ItemId)
+        @Html.HiddenFor(model => model.Descripcion)
+        @Html.HiddenFor(model => model.Precio)
+        <th scope="col">
+            @Html.DisplayFor(model => model.Descripcion)
         </th>
-    </tr>
+        <th scope="col">
+            ₡ @Html.DisplayFor(model => model.Precio)
+        </th>
+        <th scope="col">
+            @Html.EditorFor(model => model.Cantidad, new { htmlAttributes = new { min = 1, max = 5 } })
+        </th>
+        <th scope="col">
+            <button id="ModificarDelCarrito" type="submit" class="btn ModificarCarrito">
+                <i class="fas fa-edit ModificarCarrito"></i>
+            </button>
+    </form>
+    <button id="EliminarDelCarrito" type="submit" class="btn ModificarCarrito" onclick='window.location ="@Url.Action("EliminarDelCarrito", "Productos", new { idProducto = Model.ItemId })";'>
+        <i class="fas fa-trash-alt"></i>
+    </button>
+    </th>
+</tr>
 
