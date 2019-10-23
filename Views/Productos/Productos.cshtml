@@ -1,14 +1,13 @@
 ﻿@model IEnumerable<TiendaTecnologica.Models.Productos>
 
-<partial name="/Views/Shared/_Buscar.cshtml">
-    @{
-        ViewData["Title"] = "Productos";
-    }
-    <div class="productlist">
-        <br>
-        @foreach (var producto in Model)
-        {
-            <partial name="_ProductosPartial" model="producto" />
+    <partial name="/Views/Shared/_Buscar.cshtml">
+        @{
+            ViewData["Title"] = "Productos";
         }
-    </div>
-  
+        <div class="productlist">
+            <br>
+            @foreach (var producto in Model)
+            {
+                <partial name="_ProductosPartial" model="producto" />
+            }
+        </div>

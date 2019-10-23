@@ -63,7 +63,7 @@ body {
 
 .main {
     width: 50%;
-    margin: 50px auto;
+    margin:auto;
 }
 
 /* Bootstrap 4 text input with search icon */
@@ -120,11 +120,13 @@ body {
 }
 
 .pl {
-    border-top: solid;
     border-bottom: solid;
     border-width: 1px;
     border-color: lightgrey;
+    padding-Bottom: 20px;
+    padding-top: 20px;
 }
+
 
 .column {
     float: left;
@@ -162,7 +164,50 @@ body {
 
 .img-responsive {
     display: block;
-    max-width: 100%;
+    max-width: 200px;
     width: 100%;
     height: auto;
+}
+
+.cartBtn {
+    float: right;
+    width: 100px;
+}
+#carouselControls {
+    margin-top: 50px;
+}
+
+.alertCarrito {
+    margin-top: 60px;
+    display: none;
+}
+.ajusteTop {
+    margin-top: 100px;
+}
+
+#MiCuenta, #agregarAlCarrito, #carrito, #ModificarCarrito {
+    color: #D4AF37;
+}
+    #MiCuenta:hover, #agregarAlCarrito:hover, #carrito:hover, #ModificarCarrito:hover {
+        color: darkgoldenrod;
+    }
+
+#btnBuscar {
+    background-color: #D4AF37;
+    border: 1px solid darkgoldenrod;
+}
+
+#btnBuscar:hover {
+    background-color: darkgoldenrod;
+}
+
+#busqueda {
+    border: 1px solid #D4AF37;
+}
+#busqueda:active, #busqueda:focus {
+    border: 1px solid darkgoldenrod;
+    outline-color: #D4AF37;
+    box-shadow: 0 0 3px #D4AF37 !important;
+    -moz-box-shadow: 0 0 3px #D4AF37 !important;
+    -webkit-box-shadow: 0 0 3px #D4AF37 !important;
 }

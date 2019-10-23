@@ -4,33 +4,28 @@
 // Write your JavaScript code.
 $(document).ready(function () {
     $('.dropdown-toggle').dropdown();
-
-
-
 });
 
-var listaProductos = [];
-
-    function AgregarAlCarrito(IdProducto) {
-        var IdCantidadInput = 'cantidad' + IdProducto
-        var IdMensajeInput = 'MensajeCarrito' + IdProducto
-        var cantidad = document.getElementById(IdCantidadInput).value;
-        listaProductos.push({
-            Key: IdProducto,
-            Value: cantidad
-        });
-        document.getElementById(IdMensajeInput).innerHTML = "El producto se agrego al carrito.";
+function ObtenerCantidad(IdProducto) {
+    var IdCantidadInput = 'cantidad' + IdProducto
+    var cantidad = document.getElementById(IdCantidadInput).value;
+    return cantidad;
 }
 
-            function IrAlCarrito() {
-                $.ajax({
-                    type: "POST",
-                    data: { productos : listaProductos},
-                    dataType: "json",
-                    url: "/Productos/CarritoDeCompras",
-                    success: function (message) {
-                        alert(message);
-                    }
-                });
-
-        }
+function IrAlCarrito(cantidad)
+{
+    var div = document.getElementById('alertCarrito');
+    if (cantidad != 0) {
+        window.location.href = "/Productos/CarritoDeCompras";
+    }
+    else
+    {
+        // show
+        div.style.display = "block";
+    } 
+}
+$(function () {
+    $('a#ModificarCarrito').click(function () {
+        $('form#CarritoForm').submit();
+    });
+});

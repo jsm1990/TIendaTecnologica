@@ -24,15 +24,19 @@ namespace TiendaTecnologica
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
+                options.CheckConsentNeeded = context => false;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddDistributedMemoryCache(); // Adds a default in-memory implementation of IDistributedCache
+            services.AddSession();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +50,9 @@ namespace TiendaTecnologica
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            // IMPORTANT: This session call MUST go before UseMvc()
+            app.UseSession();
 
             app.UseMvc(routes =>
             {
@@ -62,7 +69,15 @@ namespace TiendaTecnologica
                 routes.MapRoute(
                       name: "Detalle",
                       template: "{controller=Productos}/{action=Detalle}/{IdProducto?}");
+                routes.MapRoute(
+                      name: "AgregarAlCarrito",
+                      template: "{controller=Productos}/{action=AgregarAlCarrito}/{IdProducto?}/{Cantidad?}");
+       
+                routes.MapRoute(
+                      name: "EliminarDelCarrito",
+                      template: "{controller=Productos}/{action=EliminarDelCarrito}/{IdProducto?}");
             });
+
 
 
         }

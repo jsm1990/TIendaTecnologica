@@ -1,23 +1,26 @@
 ﻿@model TiendaTecnologica.Models.Productos
 
-<div class="row pl ">
-    <div class="col-sm-5">
+<div class="row pl product-container">
+    <div class="col-sm-3">
         <a style="display:block" asp-area="" asp-controller="Productos" asp-action="Detalle">
-            <img src="~/images/@(Model.ProImagen)" class="img-responsive" alt="Italian Trulli">
+            <img src="~/images/@(Model.ProImagen)" class="img-responsive product-item" alt="Italian Trulli">
         </a>
     </div>
-    <div class="col-sm-7">
+    <div class="col-sm-8">
         <a style="display:block" asp-area="" asp-controller="Productos" asp-action="Detalle" asp-route-IdProducto=@(Model.ProId)>
             @Html.DisplayFor(modelItem => Model.ProDescricion)
         </a>
-        <b>₡ @Html.DisplayFor(modelItem => Model.ProPrecio)</b>
-        <br /><br />
-        <h6 class="text-danger font-weight-ligh">Solo quedan @(Model.ProCantidad) en stock. </h6>
         <br />
-        <div class="form-inline my-2 my-lg-0">
-            <input type="number" class="col-xs-12" id="cantidad@(Model.ProId)" name="quantity" min="1" max="@(Model.ProCantidad)">
-            <a href="javascript:AgregarAlCarrito('@(Model.ProId)')" class="nav-link"><i class="fas fa-shopping-cart"></i></a>
-        </div>
+        <b>₡ @Html.DisplayFor(modelItem => Model.ProPrecio)</b>
+
+        <br />
+        <div class="form-inline my-2 my-lg-0  cartBtn">
+            <a id="agregarAlCarrito" asp-controller="Productos" asp-action="AgregarAlCarrito"  rel="Agregar al carrito" asp-route-idProducto='@(Model.ProId)' asp-route-Cantidad=1
+               class=""><i class="cartBtn fas fa-shopping-cart"></i></a>
+        </div>  
+        <h5 class="text-danger font-weight-ligh">Solo quedan @(Model.ProCantidad) en stock. </h5>
+        <h6 class="text-success font-weight-ligh">Envio gratuito a todo el país, por medio de correos de Costa Rica</h6>
+        <h6 id="MensajeCarrito@(Model.ProId)" class="text-success font-weight-ligh"></h6>
     </div>
 </div>
 

@@ -12,7 +12,7 @@ namespace TiendaTecnologica.Models
         public float Total { get; set; }
         public IList<Direcciones> ListaDeDirecciones{ get; set; }
         public IList<MediosDePago> ListaDeMediosPago { get; set; }
-        public IList<Productos> ListaDeProductos { get; set; }
+        public IList<Item> ListaDeProductos { get; set; }
     }
 
 }
