@@ -1,2 +1,2 @@
-# TIendaTecnologica
-TIenda Tecnologica
+# TiendaTecnologica
+Tienda Tecnologica
