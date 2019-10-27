@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace TiendaTecnologica
 {
@@ -43,9 +42,9 @@ namespace TiendaTecnologica
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-   
+
             app.UseExceptionHandler("/Error");
-          
+
             app.UseStatusCodePages();
 
             app.UseHttpsRedirection();
@@ -73,14 +72,13 @@ namespace TiendaTecnologica
                 routes.MapRoute(
                       name: "AgregarAlCarrito",
                       template: "{controller=Productos}/{action=AgregarAlCarrito}/{IdProducto?}/{Cantidad?}");
-       
+
                 routes.MapRoute(
                       name: "EliminarDelCarrito",
                       template: "{controller=Productos}/{action=EliminarDelCarrito}/{IdProducto?}");
-
                 routes.MapRoute(
-                      name: "Login",
-                      template: "{controller=Autenticacion}/{action=Login}");
+                      name: "IrALPago",
+                      template: "{controller=Pago}/{action=IrALPago}/{listaDeCompras?}");
             });
 
 

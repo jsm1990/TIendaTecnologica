@@ -21,12 +21,14 @@ namespace TiendaTecnologica.Models
         public virtual DbSet<Usuarios> Usuarios { get; set; }
         public virtual DbSet<Venta> Venta { get; set; }
         public virtual DbSet<Contacto> Contactos { get; set; }
+        public virtual DbSet<Direcciones> Direcciones { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
                 //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TIENDA_COMPRAS;Integrated Security=True");
-                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-5BOITM6\\MARIA;Initial Catalog=TIENDA_COMPRAS;Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-5BOITM6\\MARIA;Initial Catalog=TIENDA_COMPRAS;Integrated Security=True");
+
             }
         }
 
@@ -223,6 +225,47 @@ namespace TiendaTecnologica.Models
                 entity.Property(e => e.VenTotal)
                     .HasColumnName("VEN_TOTAL")
                     .HasColumnType("decimal(13, 2)");
+            });
+
+            modelBuilder.Entity<Direcciones>(entity =>
+            {
+                entity.HasKey(e => e.IdDireccion);
+
+                entity.ToTable("DIRECCION");
+
+                entity.Property(e => e.IdDireccion)
+                    .HasColumnName("DIR_ID");
+
+                entity.Property(e => e.IdUsuario)
+                     .IsRequired()
+                     .HasColumnName("DIR_USU_ID");
+
+                entity.Property(e => e.Provincia)
+                    .IsRequired()
+                    .HasColumnName("DIR_PROVINCIA")
+                    .HasMaxLength(20)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('')");
+
+                entity.Property(e => e.Distrito)
+                    .IsRequired()
+                    .HasColumnName("DIR_DISTRITO")
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('')");
+
+                entity.Property(e => e.Canton)
+                    .IsRequired()
+                    .HasColumnName("DIR_CANTON")
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('')");
+                entity.Property(e => e.Direccion)
+                    .IsRequired()
+                    .HasColumnName("DIR_DIRECCION")
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasDefaultValueSql("('')");
             });
 
             modelBuilder.Entity<Contacto>(entity =>
