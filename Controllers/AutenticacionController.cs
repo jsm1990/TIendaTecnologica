@@ -47,8 +47,10 @@ namespace TiendaTecnologica.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await signInManager.PasswordSignInAsync(
-                    model.Correo, model.Contraseña, model.Recordarme, false);
+                //var result = await signInManager.PasswordSignInAsync(
+                    //model.Correo, model.Contraseña, model.Recordarme, false);
+
+                var result = await signInManager.PasswordSignInAsync(model.Correo, model.Contraseña, model.Recordarme, false); 
 
                 if (result.Succeeded)
                 {
@@ -62,7 +64,7 @@ namespace TiendaTecnologica.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Register(RegistroViewModel model)
+        public async Task<IActionResult> Registro(RegistroViewModel model)
         {
             if (ModelState.IsValid)
             {
