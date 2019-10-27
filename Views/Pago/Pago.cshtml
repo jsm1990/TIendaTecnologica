@@ -1,0 +1,34 @@
+﻿@model TiendaTecnologica.Models.ListaDeCompras
+
+@{
+    ViewData["Title_Direccion"] = "Direccion de entrega";
+}
+
+<div class="container ajusteTop">
+    @Html.HiddenFor(m => m.Direccion.Provincia, new { id = "Provincia" })
+    @Html.HiddenFor(m => m.Direccion.Canton, new { id = "Canton" })
+    @Html.HiddenFor(m => m.Direccion.Distrito, new { id = "Distrito" })
+
+    <h3 class="mt-5 text-center ">@ViewData["Title_Direccion"]</h3>
+
+    <div class="row pl">
+        <div class="col-sm-4">
+
+            <h6>Provincia &nbsp; <select id="selectProvincias"></select></h6>
+        </div>
+        <div class="col-sm-4">
+            <h6>Cantón &nbsp;&nbsp;&nbsp;   <select id="selectCantones"></select></h6>
+        </div>
+        <div class="col-sm-4">
+            <h6>Distrito  &nbsp;&nbsp;&nbsp;&nbsp;<select id="selectDistritos"></select></h6>
+        </div>
+        <div class="row pl">
+            <div class="col-sm-12">
+                <h6>
+                    @Html.LabelFor(m => m.Direccion.Direccion)
+                    @Html.EditorFor(m => m.Direccion.Direccion)
+                </h6>
+            </div>
+        </div>
+    </div>
+

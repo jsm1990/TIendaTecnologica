@@ -5,45 +5,52 @@
 }
 <div class="container ajusteTop">
     <h3 class="mt-5 text-center ">@ViewData["Title"]</h3>
-
-    <div class="table-responsive">
-        <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">Articulo</th>
-                    <th scope="col">Precio</th>
-                    <th scope="col">Cantidad</th>
-                    <th scope="col">Acción</th>
+    <form id="CarritoForm1" asp-controller="Pago" asp-action="IrALPago">
+        @Html.HiddenFor(model => model.Impuesto)
+        @Html.HiddenFor(model => model.Subtotal)
+        @Html.HiddenFor(model => model.Total)
+        @Html.HiddenFor(model => model.ListaDeProductos)
+        <div class="table-responsive">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Articulo</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ListaDeProductos)
+                    {
+                        <partial name="_ProductosCarritoPartial" model="item" />
+                    }
+                </tbody>
+                <tr class="thead-light">
+                    <th scope="col">Subtotal</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">₡ @Model.Subtotal</th>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.ListaDeProductos)
-                {
-                    <partial name="_ProductosCarritoPartial" model="item" />
-                }
-            </tbody>
-            <tr class="thead-light">
-                <th scope="col">Subtotal</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col">₡ @Model.Subtotal</th>
-            </tr>
-            <tr class="thead-light">
-                <th scope="col">Impuesto (13%)</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col">₡ @Model.Impuesto</th>
-            </tr>
-            <tr class="thead-dark">
-                <th scope="col">Total</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col">₡ @Model.Total</th>
-            </tr>
-        </table>
-        <div class="mb-3">
-            <button type="button" class="btn btn-warning btn-block">Siguiente</button>
+                <tr class="thead-light">
+                    <th scope="col">Impuesto (13%)</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">₡ @Model.Impuesto</th>
+                </tr>
+                <tr class="thead-dark">
+                    <th scope="col">Total</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col">₡ @Model.Total</th>
+                </tr>
+            </table>
+            <div class="mb-3">
+                <button id="btnSiguiente" type="submit" class="btn btn-warning btn-block">
+                    Siguiente
+                </button>
+            </div>
         </div>
-    </div>
+    </form>
 
 </div>
