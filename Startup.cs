@@ -76,6 +76,10 @@ namespace TiendaTecnologica
                 routes.MapRoute(
                       name: "EliminarDelCarrito",
                       template: "{controller=Productos}/{action=EliminarDelCarrito}/{IdProducto?}");
+
+                routes.MapRoute(
+                      name: "Login",
+                      template: "{controller=Autenticacion}/{action=Login}");
             });
 
 

@@ -25,7 +25,8 @@ namespace TiendaTecnologica.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TIENDA_COMPRAS;Integrated Security=True");
+                //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=TIENDA_COMPRAS;Integrated Security=True");
+                 optionsBuilder.UseSqlServer("Data Source=DESKTOP-5BOITM6\\MARIA;Initial Catalog=TIENDA_COMPRAS;Integrated Security=True");
             }
         }
 
