@@ -1,0 +1,33 @@
+﻿@model RegistroViewModel
+
+@{
+    ViewBag.Title = "Registro de Usuarios";
+}
+
+    <div id="container" class="ajusteTop">
+        <h1>Registro</h1>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form method="post">
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Correo">Correo Electrónico</label>
+                        <input asp-for="Correo" class="form-control" />
+                        <span asp-validation-for="Correo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Contraseña">Contraseña</label>
+                        <input asp-for="Contraseña" class="form-control" />
+                        <span asp-validation-for="Contraseña" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ConfirmarContraseña">Confirmar Contraseña</label>
+                        <input asp-for="ConfirmarContraseña" class="form-control" />
+                        <span asp-validation-for="ConfirmarContraseña" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary" value="Registro">Registro</button>
+                </form>
+            </div>
+        </div>
+    </div>
